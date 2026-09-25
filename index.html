@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mockup — Seguros E&amp;A</title>
+<style>
+	:root {
+		--azul: #12376b;
+		--azul-claro: #1d5299;
+		--ambar: #e8a020;
+		--ambar-oscuro: #c9860f;
+		--fondo: #ffffff;
+		--fondo-alt: #f5f7fa;
+		--borde: #e2e8f0;
+		--texto: #16202e;
+		--texto-suave: #5a6b80;
+		--verde: #1f9d55;
+		--serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", "Liberation Serif", serif;
+		--sans: Arial, "Helvetica Neue", "Segoe UI", Roboto, "Liberation Sans", sans-serif;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--azul: #6ea8ff;
+			--azul-claro: #8fbcff;
+			--ambar: #f0b44a;
+			--ambar-oscuro: #f0b44a;
+			--fondo: #0d141f;
+			--fondo-alt: #131c2a;
+			--borde: #26334a;
+			--texto: #e8eef7;
+			--texto-suave: #9bacc4;
+			--verde: #34c77b;
+		}
+	}
+
+	* , *::before, *::after { box-sizing: border-box; }
+
+	body {
+		margin: 0;
+		background: var(--fondo);
+		color: var(--texto);
+		font-family: var(--sans);
+		font-size: 17px;
+		line-height: 1.65;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	a { color: var(--azul); text-underline-offset: 2px; }
+
+	.envoltura { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+	header.tapa {
+		padding: 72px 0 48px;
+		background-image:
+			radial-gradient(620px 360px at 14% -20%, rgba(18, 55, 107, .14), rgba(18, 55, 107, 0) 70%),
+			radial-gradient(520px 320px at 90% 0%, rgba(232, 160, 32, .14), rgba(232, 160, 32, 0) 70%);
+	}
+
+	.sobretitulo {
+		margin: 0 0 8px;
+		color: var(--ambar-oscuro);
+		font-size: 14px;
+		font-weight: 700;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		margin: 0 0 16px;
+		font-family: var(--serif);
+		font-size: clamp(2rem, 5vw, 2.9rem);
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	.bajada { max-width: 62ch; margin: 0; color: var(--texto-suave); font-size: 18.5px; }
+
+	h2 {
+		margin: 0 0 20px;
+		font-family: var(--serif);
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	section { padding: 52px 0; }
+	section.alt { background: var(--fondo-alt); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+
+	.vistas { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+
+	.vista {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 24px;
+		background: var(--fondo);
+		border: 1px solid var(--borde);
+		border-radius: 14px;
+		color: inherit;
+		text-decoration: none;
+		transition: transform 140ms cubic-bezier(.23, 1, .32, 1), border-color 140ms cubic-bezier(.23, 1, .32, 1), box-shadow 140ms cubic-bezier(.23, 1, .32, 1);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.vista:hover {
+			border-color: var(--azul);
+			box-shadow: 0 1px 2px rgba(16, 32, 56, .06), 0 8px 24px rgba(16, 32, 56, .08);
+			transform: translateY(-2px);
+		}
+	}
+	.vista:active { transform: scale(.99); }
+
+	.vista__medida { margin: 0 0 10px; color: var(--texto-suave); font-size: 13.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+	.vista__titulo { margin: 0 0 8px; font-family: var(--serif); font-size: 20.5px; font-weight: 700; line-height: 1.25; }
+	.vista__texto { margin: 0; color: var(--texto-suave); font-size: 16px; }
+	.vista__ir { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; color: var(--azul); font-size: 15.5px; font-weight: 600; }
+
+	.pastilla {
+		display: inline-block;
+		margin-left: 8px;
+		padding: 2px 10px;
+		background: rgba(31, 157, 85, .14);
+		border-radius: 999px;
+		color: var(--verde);
+		font-family: var(--sans);
+		font-size: 12.5px;
+		font-weight: 700;
+		letter-spacing: .04em;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.notas { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+
+	.nota { padding: 22px 24px; background: var(--fondo); border: 1px solid var(--borde); border-left: 4px solid var(--borde); border-radius: 14px; }
+	.nota--pendiente { border-left-color: var(--ambar); }
+	.nota--info { border-left-color: var(--azul); }
+	.nota--hecho { border-left-color: var(--verde); }
+
+	.nota h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.25; }
+	.nota p { margin: 0 0 .7em; color: var(--texto-suave); font-size: 16px; }
+	.nota p:last-child { margin-bottom: 0; }
+	.nota code { padding: 1px 5px; background: var(--fondo-alt); border-radius: 4px; font-size: 14.5px; }
+
+	footer { padding: 40px 0 56px; border-top: 1px solid var(--borde); }
+	footer p { margin: 0 0 .5em; color: var(--texto-suave); font-size: 15px; }
+	footer p:last-child { margin-bottom: 0; }
+
+	:focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="tapa">
+	<div class="envoltura">
+		<p class="sobretitulo">Maqueta de diseño</p>
+		<h1>Seguros E&amp;A</h1>
+		<p class="bajada">Cinco vistas del sitio, dibujadas con los valores exactos del tema: serif en titulares, azul <code>#12376b</code> de marca y ámbar <code>#e8a020</code> de acción. Es una maqueta estática — el sitio real corre sobre WordPress.</p>
+	</div>
+</header>
+
+<section>
+	<div class="envoltura">
+		<h2>Las vistas</h2>
+
+		<ul class="vistas">
+			<li>
+				<a class="vista" href="portada.html">
+					<p class="vista__medida">1280 px</p>
+					<h3 class="vista__titulo">Portada en escritorio</h3>
+					<p class="vista__texto">Las nueve secciones que hoy se dibujan, de la cabecera al pie: hero, cifras, los seis ramos con filtro, cotizador, quiénes somos, los tres pilares, el proceso, preguntas y cierre.</p>
+					<span class="vista__ir">Ver &#8594;</span>
+				</a>
+			</li>
+
+			<li>
+				<a class="vista" href="movil.html">
+					<p class="vista__medida">390 × 844 px</p>
+					<h3 class="vista__titulo">Portada en móvil</h3>
+					<p class="vista__texto">El pliegue real de un teléfono: botones a ancho completo, menú en hamburguesa y las cifras en una sola columna.</p>
+					<span class="vista__ir">Ver &#8594;</span>
+				</a>
+			</li>
+
+			<li>
+				<a class="vista" href="oscuro.html">
+					<p class="vista__medida">1280 px</p>
+					<h3 class="vista__titulo">Modo oscuro</h3>
+					<p class="vista__texto">No es el modo claro invertido: los azules se aclaran porque un azul oscuro sobre fondo oscuro no contrasta, y el texto del botón lleno pasa a oscuro.</p>
+					<span class="vista__ir">Ver &#8594;</span>
+				</a>
+			</li>
+
+			<li>
+				<a class="vista" href="cotizador.html">
+					<p class="vista__medida">780 px<span class="pastilla">Funciona</span></p>
+					<h3 class="vista__titulo">Cotizador de tres pasos</h3>
+					<p class="vista__texto">Se puede usar de verdad: validación, resumen antes de enviar y pantalla de confirmación. Nada se envía a ninguna parte — es la maqueta.</p>
+					<span class="vista__ir">Probarlo &#8594;</span>
+				</a>
+			</li>
+
+			<li>
+				<a class="vista" href="ficha.html">
+					<p class="vista__medida">1280 px</p>
+					<h3 class="vista__titulo">Ficha de un seguro</h3>
+					<p class="vista__texto">La página de un ramo, con Automóvil como ejemplo: migas, las siete coberturas, el cotizador ya con ese seguro elegido y otros tres ramos al final.</p>
+					<span class="vista__ir">Ver &#8594;</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="alt">
+	<div class="envoltura">
+		<h2>Qué falta y qué es deliberado</h2>
+
+		<ul class="notas">
+			<li class="nota nota--pendiente">
+				<h3>Lo que está entre corchetes</h3>
+				<p>Teléfono, WhatsApp, correo y la dirección exacta todavía no los dio la empresa. Se llenan desde <em>Personalizar › Contacto</em>, sin tocar código: por eso en las vistas aparecen como <code>[TELÉFONO]</code>.</p>
+				<p>Faltan también el logo real, la cita atribuida a Einstein y los textos de «Quiénes somos», que van pegados en una página con el slug <code>nosotros</code>.</p>
+			</li>
+
+			<li class="nota nota--info">
+				<h3>Dos secciones no se dibujan</h3>
+				<p>Aliados y Testimonios no están en la portada porque no hay nada publicado, y eso es a propósito: el tema saltea la sección entera en vez de dejar un hueco rotulado «próximamente».</p>
+				<p>Publicar el primer testimonio hace aparecer la sección sola. No se sembraron testimonios de arranque porque inventar el elogio de un cliente que no existe, en un sitio donde lo que se vende es confianza, es exactamente lo que no corresponde hacer.</p>
+			</li>
+
+			<li class="nota nota--hecho">
+				<h3>Contraste de los errores, corregido</h3>
+				<p>El rojo de error del tema era <code>#d64545</code>: 4.38:1 sobre blanco, por debajo del mínimo legible de 4.5:1, y 3.74:1 en modo oscuro — peor, porque al estar escrito a mano no se aclaraba junto con el resto de la paleta.</p>
+				<p>Ahora es un token, <code>--sea-rojo</code>: <code>#c62828</code> en claro (5.6:1) y <code>#f08080</code> en oscuro (6.3:1).</p>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<footer>
+	<div class="envoltura">
+		<p>Maqueta estática. El sitio real es un tema y un plugin de WordPress, en un repositorio privado aparte.</p>
+		<p>Las coberturas que se muestran son orientativas. Las condiciones y exclusiones exactas son las de cada póliza.</p>
+	</div>
+</footer>
+
+</body>
+</html>

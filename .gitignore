@@ -1,0 +1,12 @@
+# Basura del sistema de archivos, no del proyecto.
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+._*
+
+# Configuración de editores.
+.vscode/
+.idea/
+*.swp
+*~
